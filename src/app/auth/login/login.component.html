@@ -1,0 +1,49 @@
+<div class="auth-desktop-canvas">
+  <div class="auth-central-box">
+    
+    <h1 class="main-auth-heading">Daily<br>Blueprint</h1>
+
+    <div class="credentials-input-card">
+      
+      <div class="form-input-stack-group">
+        <label for="userEmail">Email Address</label>
+        <input 
+          type="email" 
+          id="userEmail" 
+          class="clean-mobile-field" 
+          placeholder="name@company.com" 
+          [(ngModel)]="loginEmail">
+      </div>
+
+      <div class="form-input-stack-group">
+        <div class="label-row-meta">
+          <label for="userPassword">Password</label>
+          <a class="auxiliary-inline-link" (click)="triggerPasswordReset()">Forgot Password?</a>
+        </div>
+        <input 
+          type="password" 
+          id="userPassword" 
+          class="clean-mobile-field" 
+          placeholder="••••••••" 
+          [(ngModel)]="loginPassword">
+      </div>
+
+    </div>
+
+    <button type="button" class="prime-action-brand-btn" (click)="goToNextStep()">
+      <span class="btn-icon-slot"></span> Continue with Email
+    </button>
+
+    <div class="social-providers-stack">
+      <button type="button" class="outline-provider-btn">
+        <span class="provider-brand-icon-google"></span> Continue with Google
+      </button>
+    </div>
+
+    <p class="legal-footer-text">
+      By continuing with the services above, you agree to Todoist's 
+      <a class="legal-link">Terms of Service</a> and <a class="legal-link">Privacy Policy</a>.
+    </p>
+
+  </div>
+</div>

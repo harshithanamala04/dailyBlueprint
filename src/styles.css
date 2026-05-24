@@ -1,0 +1,28 @@
+/* src/styles.css */
+:root {
+  /* Exact color matching from the mockup */
+  --bg-main: #f4f6fa;          /* Soft light grey app background */
+  --surface-white: #ffffff;    /* Pure white for inner cards and grid tiles */
+  --text-primary: #2d3748;     /* Deep charcoal for headers */
+  --text-muted: #8c9ba5;       /* Light grey for subheadings/labels */
+  
+  /* Brand accents */
+  --purple-brand: #6b7cff;
+  --purple-gradient: linear-gradient(135deg, #7c90ff 0%, #9575ff 100%);
+  
+  /* Drop Shadows & Borders */
+  --shadow-sm: 0 2px 8px rgba(140, 155, 165, 0.06);
+  --shadow-md: 0 4px 16px rgba(140, 155, 165, 0.12);
+  --border-light: 1px solid #eef1f6;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e2e8f0; /* Darker desktop backdrop to make the app container pop */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}

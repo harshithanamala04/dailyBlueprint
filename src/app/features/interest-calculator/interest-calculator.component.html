@@ -1,0 +1,52 @@
+<div class="interest-feature-card">
+
+  <div class="interest-header-section">
+    <div class="header-badge">Wealth Calculators</div>
+    <h1 class="interest-main-title">Interest Calculator</h1>
+    <p class="interest-subtitle">Calculate linear growth or exponential compounding yields instantly.</p>
+  </div>
+
+  <div class="calculator-toggle-bar">
+    <button type="button" class="toggle-tab" [class.active]="interestType === 'simple'" (click)="switchInterestType('simple')">
+      Simple Interest
+    </button>
+    <button type="button" class="toggle-tab" [class.active]="interestType === 'compound'" (click)="switchInterestType('compound')">
+      Compound Interest
+    </button>
+  </div>
+
+  <div class="interest-score-display" [class.compound-theme]="interestType === 'compound'">
+    <span class="score-lbl">TOTAL MATURITY VALUE (PRINCIPAL + INTEREST)</span>
+    <h1 class="score-grand-value">₹{{ totalMaturityAmount | number:'1.2-2' }}</h1>
+    <p class="interest-earned-lbl">Interest Earned: <strong>₹{{ totalInterestEarned | number:'1.2-2' }}</strong></p>
+  </div>
+
+  <div class="interest-input-form-group">
+    
+    <div class="form-input-stack-card">
+      <label class="field-descriptive-lbl">💰 Principal Amount (P)</label>
+      <div class="input-with-inline-addon">
+        <input type="number" class="clean-mobile-field" [(ngModel)]="principal" (input)="executeInterestCalculations()" placeholder="e.g., 10000">
+        <span class="inline-addon-label">₹</span>
+      </div>
+    </div>
+
+    <div class="form-input-stack-card">
+      <label class="field-descriptive-lbl">📈 Annual Interest Rate (R)</label>
+      <div class="input-with-inline-addon">
+        <input type="number" class="clean-mobile-field" [(ngModel)]="interestRate" (input)="executeInterestCalculations()" placeholder="e.g., 5">
+        <span class="inline-addon-label">% p.a.</span>
+      </div>
+    </div>
+
+    <div class="form-input-stack-card">
+      <label class="field-descriptive-lbl">⏳ Time Duration (T)</label>
+      <div class="input-with-inline-addon">
+        <input type="number" class="clean-mobile-field" [(ngModel)]="timeDuration" (input)="executeInterestCalculations()" placeholder="e.g., 2">
+        <span class="inline-addon-label">Years</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>

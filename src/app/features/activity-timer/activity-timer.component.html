@@ -1,0 +1,86 @@
+<div class="timer-feature-card">
+
+  <div class="timer-header-section">
+    <div class="header-badge">Focus Mode</div>
+    <div class="header-main-row">
+      <div>
+        <h1 class="timer-main-title">Activity Timer</h1>
+        <p class="timer-subtitle">Create and manage multi-track context countdown runs.</p>
+      </div>
+      <button type="button" class="add-timer-inline-btn" (click)="openNewTimerModal()">＋ New</button>
+    </div>
+  </div>
+
+  <div class="new-timer-drawer-card" *ngIf="showAddModal">
+    <div class="drawer-header-strip">
+      <h3>⚡ Configure Activity Timer</h3>
+      <button type="button" class="close-drawer-btn" (click)="closeNewTimerModal()">×</button>
+    </div>
+    
+    <div class="drawer-inputs-stack">
+      <div class="input-unit-card">
+        <label for="timer-name-field">Activity Label</label>
+        <input id="timer-name-field" type="text" [(ngModel)]="newTimerLabel" placeholder="e.g., Coding, Workout, Reading">
+      </div>
+      
+      <div class="input-duration-grid">
+        <div class="input-unit-card">
+          <label for="timer-min-field">Minutes</label>
+          <input id="timer-min-field" type="number" [(ngModel)]="newTimerMinutes" min="0" max="60" placeholder="Min">
+        </div>
+        <div class="input-unit-card">
+          <label for="timer-sec-field">Seconds</label>
+          <input id="timer-sec-field" type="number" [(ngModel)]="newTimerSeconds" min="0" max="59" placeholder="Sec">
+        </div>
+      </div>
+
+      <button type="button" class="commit-timer-btn" (click)="createNewTimerInstance()">
+        🚀 Initialize Countdown Track
+      </button>
+    </div>
+  </div>
+
+  <div class="timer-instances-stack-list">
+    
+    <div *ngFor="let timer of timersList; let idx = index" 
+         class="timer-row-strip-card"
+         [ngClass]="{'running-state': timer.status === 'RUNNING', 'paused-state': timer.status === 'PAUSED', 'completed-state': timer.timeLeft === 0}">
+      
+      <div class="timer-context-meta">
+        <span class="timer-icon-bullet">⏱️</span>
+        <div class="meta-text-stack">
+          <h4>{{ timer.label }}</h4>
+          <p class="status-indicator-txt">{{ timer.status }}</p>
+        </div>
+      </div>
+
+      <div class="digital-clock-face">
+        {{ formatTimeClockFace(timer.timeLeft) }}
+      </div>
+
+      <div class="timer-action-controls-row">
+        <button type="button" class="control-action-btn run-btn" 
+                *ngIf="timer.status !== 'RUNNING' && timer.timeLeft > 0" 
+                (click)="startTimerInstance(idx)">▶</button>
+                
+        <button type="button" class="control-action-btn pause-btn" 
+                *ngIf="timer.status === 'RUNNING'" 
+                (click)="pauseTimerInstance(idx)">⏸</button>
+                
+        <button type="button" class="control-action-btn reset-btn" 
+                (click)="resetTimerInstance(idx)">🔄</button>
+                
+        <button type="button" class="control-action-btn kill-btn" 
+                (click)="removeTimerInstance(idx)">×</button>
+      </div>
+
+    </div>
+
+    <div class="empty-timers-placeholder-panel" *ngIf="timersList.length === 0">
+      <span class="sand-clock-icon">⏳</span>
+      <p>No timers running. Click the <strong>＋ New</strong> button at the top right to start tracking an activity!</p>
+    </div>
+
+  </div>
+
+</div>

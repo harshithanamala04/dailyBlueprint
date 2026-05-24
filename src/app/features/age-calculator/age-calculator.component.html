@@ -1,0 +1,100 @@
+<div class="age-feature-card">
+
+  <div class="age-header-section">
+    <div class="header-badge">Life Metrics</div>
+    <h1 class="age-main-title">Age Calculator</h1>
+    <p class="age-subtitle">Select your date of birth to reveal precise age milestones and breakdowns.</p>
+  </div>
+
+  <div class="age-input-form-group">
+    <div class="form-input-stack-card">
+      <label for="birth-date-field" class="field-descriptive-lbl">
+        <span>📅 Select Date of Birth</span>
+      </label>
+      <input 
+        id="birth-date-field"
+        type="date" 
+        class="clean-mobile-field" 
+        [(ngModel)]="birthDate"
+        (change)="calculateAgeMetrics()">
+    </div>
+  </div>
+
+  <ng-container *ngIf="ageCalculated && ageResults">
+    
+    <div class="age-score-grand-display">
+      <span class="score-lbl">YOUR EXACT AGE</span>
+      <h1 class="score-grand-value">
+        {{ ageResults.years }} <span class="value-unit-lbl">Yrs</span>
+      </h1>
+      <div class="status-pill">
+        {{ ageResults.months }} Months | {{ ageResults.days }} Days
+      </div>
+    </div>
+
+    <div class="birthday-countdown-card">
+      <div class="countdown-header">
+        <span class="cake-icon">🎂</span>
+        <div>
+          <h4>Next Birthday Countdown</h4>
+          <p *ngIf="ageResults.daysToNextBirthday > 0">
+            Your next celebration is in <strong>{{ ageResults.monthsToNextBirthday }}</strong> months and <strong>{{ ageResults.daysToNextBirthday }}</strong> days!
+          </p>
+          <p *ngIf="ageResults.daysToNextBirthday === 0">
+            🎉 **Happy Birthday! Have a wonderful day today!** 🎉
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="conversion-scale-card">
+      <div class="scale-header">
+        <span class="scale-icon">📊</span>
+        <div>
+          <h4>Total Time Traveled Breakdown</h4>
+          <p>Your total life path measured in single independent continuous units:</p>
+        </div>
+      </div>
+
+      <div class="table-responsive-wrapper">
+        <table class="clean-matrix-table">
+          <thead>
+            <tr>
+              <th>TIME MEASUREMENT</th>
+              <th>ACCUMULATED VALUES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Months Living</td>
+              <td><strong>{{ ageResults.totalMonths | number }}</strong> months</td>
+            </tr>
+            <tr>
+              <td>Total Weeks Living</td>
+              <td><strong>{{ ageResults.totalWeeks | number }}</strong> weeks</td>
+            </tr>
+            <tr>
+              <td>Total Days Living</td>
+              <td><strong>{{ ageResults.totalDays | number }}</strong> days</td>
+            </tr>
+            <tr>
+              <td>Total Hours Living</td>
+              <td><strong>{{ ageResults.totalHours | number }}</strong> hours</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </ng-container>
+
+  <ng-container *ngIf="!ageCalculated">
+    <div class="age-score-grand-display empty-state-pad">
+      <h1 class="score-grand-value">--</h1>
+      <p class="score-status-text">
+        Pick a date above to initialize age stream matrix logs
+      </p>
+    </div>
+  </ng-container>
+
+</div>

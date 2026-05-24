@@ -1,0 +1,37 @@
+.interest-feature-card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin-top: 16px;
+  border: 1px solid #eef0f3;
+}
+
+.interest-header-section { text-align: left; margin-bottom: 24px; }
+.header-badge { display: inline-block; background-color: #fff6e8; color: #ff9f1c; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; margin-bottom: 10px; }
+.interest-main-title { font-size: 1.55rem; font-weight: 800; color: #1a2530; margin: 0 0 4px 0; }
+.interest-subtitle { font-size: 0.84rem; color: #7a8896; margin: 0; line-height: 1.4; }
+
+.calculator-toggle-bar { display: flex; background-color: #f1f5f9; padding: 4px; border-radius: 12px; margin-bottom: 24px; }
+.toggle-tab { flex: 1; background: none; border: none; padding: 10px; font-size: 0.85rem; font-weight: 700; color: #64748b; cursor: pointer; border-radius: 9px; transition: all 0.15s ease; }
+.toggle-tab.active { background-color: #ffffff; color: #ff9f1c; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); }
+.toggle-tab.active[class*="compound"] { color: #616eff; }
+
+.interest-score-display { background-color: #fffaf0; border: 1px solid #feebc8; border-radius: 18px; padding: 24px 16px; text-align: center; margin-bottom: 24px; transition: all 0.2s ease; }
+.interest-score-display.compound-theme { background-color: #f0f2ff; border-color: #cbd2ff; }
+
+.score-lbl { font-size: 0.68rem; font-weight: 700; color: #64748b; letter-spacing: 0.5px; }
+.score-grand-value { font-size: 2.2rem; font-weight: 900; color: #0f172a; margin: 8px 0; }
+.interest-earned-lbl { font-size: 0.82rem; color: #475569; margin: 0; }
+
+.interest-input-form-group { display: flex; flex-direction: column; gap: 16px; }
+.form-input-stack-card { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.field-descriptive-lbl { font-size: 0.82rem; font-weight: 700; color: #334155; }
+
+.input-with-inline-addon { position: relative; display: flex; align-items: center; }
+.clean-mobile-field { width: 100%; padding: 12px 75px 12px 16px; border: 1.5px solid #cbd5e1; border-radius: 12px; font-size: 0.95rem; font-weight: 600; color: #0f172a; outline: none; box-sizing: border-box; }
+.clean-mobile-field:focus { border-color: #ff9f1c; box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.1); }
+.interest-score-display.compound-theme ~ .interest-input-form-group .clean-mobile-field:focus { border-color: #616eff; box-shadow: 0 0 0 3px rgba(97, 110, 255, 0.1); }
+.inline-addon-label { position: absolute; right: 16px; font-size: 0.8rem; font-weight: 700; color: #94a3b8; }

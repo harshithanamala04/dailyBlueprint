@@ -1,0 +1,105 @@
+<div class="period-feature-card">
+
+  <div class="period-header-section">
+    <div class="header-badge">Cycle Analytics</div>
+    <h1 class="period-main-title">Her Cycle</h1>
+    <p class="period-subtitle">"Your period is a sign your body is strong, capable, and beautifully doing what it's designed to do." </p>
+  </div>
+
+  <div class="cycle-configuration-row">
+    <div class="form-input-stack-card flex-one">
+      <label for="last-period-field" class="field-descriptive-lbl">📅 Last Period Start Date</label>
+      <input id="last-period-field" type="date" class="clean-mobile-field" [(ngModel)]="lastPeriodDate" (change)="calculateCycleWindows()">
+    </div>
+    
+    <div class="form-input-stack-card flex-one">
+      <label for="cycle-length-field" class="field-descriptive-lbl">🔄 Average Cycle Length</label>
+      <div class="input-with-inline-addon">
+        <input id="cycle-length-field" type="number" class="clean-mobile-field" [(ngModel)]="avgCycleLength" (input)="calculateCycleWindows()" placeholder="e.g., 28">
+        <span class="inline-addon-label">Days</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cycle-metrics-grid" *ngIf="nextPeriodDate">
+    
+    <div class="metric-card countdown-shield">
+      <span class="metric-card-lbl">NEXT PERIOD EXPECTED</span>
+      <h2 class="metric-grand-value">{{ daysUntilNextPeriod > 0 ? daysUntilNextPeriod : '0' }}</h2>
+      <span class="metric-unit-lbl">Days Left</span>
+      <p class="prediction-date-footer">Predicted: <strong>{{ formatDisplayFriendlyDate(nextPeriodDate) }}</strong></p>
+    </div>
+
+    <div class="metric-card ovulation-shield">
+      <span class="metric-card-lbl">OVULATION & FERTILE WINDOW</span>
+      <div class="fertile-icon-bubble">🌸</div>
+      <h4 class="fertile-range-value">{{ formatDisplayFriendlyDate(ovulationDate) }}</h4>
+      <p class="prediction-date-footer">Peak fertility day of current cycle</p>
+    </div>
+
+  </div>
+
+  <div class="symptom-logger-card">
+    <h3>📝 Log Daily Health Check</h3>
+    <div class="logger-inputs-flex-row">
+      <div class="input-chassis flex-two">
+        <label for="symptom-notes">Notes / Symptoms</label>
+        <input id="symptom-notes" type="text" [(ngModel)]="newLogNotes" placeholder="e.g., Mild cramps, high energy, headache">
+      </div>
+
+      <div class="input-chassis flex-one">
+        <label for="flow-level">Flow Intensity</label>
+        <select id="flow-level" [(ngModel)]="newLogFlow" class="clean-select-field">
+          <option value="None">None / Spotted</option>
+          <option value="Light">Light Flow 💧</option>
+          <option value="Medium">Medium Flow 💧💧</option>
+          <option value="Heavy">Heavy Flow 💧💧💧</option>
+        </select>
+      </div>
+
+      <button type="button" class="inject-log-btn" (click)="commitSymptomLogEntry()">Log Day</button>
+    </div>
+  </div>
+
+  <div class="conversion-scale-card">
+    <div class="scale-header">
+      <span class="scale-icon">📋</span>
+      <div>
+        <h4>Symptom & Wellness Ledger</h4>
+        <p>Your history of logged daily symptoms and flow tracks:</p>
+      </div>
+    </div>
+
+    <div class="table-responsive-wrapper" *ngIf="symptomLogsHistory.length > 0">
+      <table class="clean-matrix-table">
+        <thead>
+          <tr>
+            <th>DATE</th>
+            <th>FLOW STATE</th>
+            <th>SYMPTOMS & LOG NOTES</th>
+            <th class="text-center">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let log of symptomLogsHistory; let idx = index">
+            <td class="date-dim-cell">{{ log.dateStamp }}</td>
+            <td>
+              <span class="flow-pill-badge" [ngClass]="'flow-' + log.flowLevel.toLowerCase()">
+                {{ log.flowLevel }}
+              </span>
+            </td>
+            <td class="tx-desc-cell"><strong>{{ log.notes }}</strong></td>
+            <td class="text-center">
+              <button type="button" class="void-log-btn" (click)="removeSymptomLogEntry(idx)">×</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="empty-ledger-notice-panel" *ngIf="symptomLogsHistory.length === 0">
+      🌸 No wellness notes logged for this cycle yet.
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,75 @@
+<div class="events-feature-card">
+
+  <div class="events-header-section">
+    <div class="header-badge">Celebrations</div>
+    <div class="header-main-row">
+      <div>
+        <h1 class="events-main-title">Special Days</h1>
+        <p class="events-subtitle">Track milestones, upcoming holidays, and anniversary countdowns.</p>
+      </div>
+      <button type="button" class="add-event-inline-btn" (click)="openEventDrawer()">＋ Event</button>
+    </div>
+  </div>
+
+  <div class="new-event-drawer-card" *ngIf="showAddDrawer">
+    <div class="drawer-header-strip">
+      <h3>⚡ Schedule Special Day</h3>
+      <button type="button" class="close-drawer-btn" (click)="closeEventDrawer()">×</button>
+    </div>
+    
+    <div class="drawer-inputs-stack">
+      <div class="input-unit-card">
+        <label for="event-title-field">Event Title</label>
+        <input id="event-title-field" type="text" [(ngModel)]="newEventTitle" placeholder="e.g., Mom's Birthday, New Year, Tech Exam">
+      </div>
+      
+      <div class="input-unit-card">
+        <label for="event-date-field">Event Date</label>
+        <input id="event-date-field" type="date" [(ngModel)]="newEventDate">
+      </div>
+      
+      <button type="button" class="commit-event-btn" (click)="createNewEventInstance()">
+        🚀 Lock Event Into Matrix Hub
+      </button>
+    </div>
+  </div>
+
+  <div class="events-timeline-list-stack">
+    
+    <div *ngFor="let event of eventsList; let idx = index" 
+         class="event-row-strip-card"
+         [ngClass]="getEventUrgencyClass(event.daysRemaining)">
+      
+      <div class="event-context-meta">
+        <span class="event-icon-bullet">{{ getEventCategoryIcon(event.daysRemaining) }}</span>
+        <div class="meta-text-stack">
+          <h4>{{ event.title }}</h4>
+          <p class="calendar-date-lbl-dim">{{ formatDisplayFriendlyDate(event.targetDate) }}</p>
+        </div>
+      </div>
+
+      <div class="countdown-badge-shield">
+        <ng-container *ngIf="event.daysRemaining > 0">
+          <span class="days-numeric-val">{{ event.daysRemaining }}</span>
+          <span class="days-text-lbl">Days Left</span>
+        </ng-container>
+        <ng-container *ngIf="event.daysRemaining === 0">
+          <span class="today-celebration-txt">🎉 Today!</span>
+        </ng-container>
+        <ng-container *ngIf="event.daysRemaining < 0">
+          <span class="past-event-txt">Passed</span>
+        </ng-container>
+      </div>
+
+      <button type="button" class="void-event-row-btn" (click)="removeEventInstance(idx)">×</button>
+
+    </div>
+
+    <div class="empty-events-placeholder-panel" *ngIf="eventsList.length === 0">
+      <span class="confetti-icon">🎉</span>
+      <p>No special days scheduled yet. Click the <strong>＋ Event</strong> button at the top right to start your countdown list!</p>
+    </div>
+
+  </div>
+
+</div>

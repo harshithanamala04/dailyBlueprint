@@ -1,0 +1,92 @@
+<div class="expense-feature-card">
+
+  <div class="expense-header-section">
+    <div class="header-badge">Money Metrics</div>
+    <h1 class="expense-main-title">Expense Tracker</h1>
+    <p class="expense-subtitle">Set your total budget limits and track your structural spending on the go.</p>
+  </div>
+
+  <div class="financial-metrics-dashboard-grid">
+    
+    <div class="metric-display-card total-pool-card">
+      <span class="card-metric-lbl">TOTAL BUDGET ALLOCATED</span>
+      <div class="inline-budget-setter">
+        <span class="currency-symbol">₹</span>
+        <input 
+          type="number" 
+          class="budget-stealth-input" 
+          [(ngModel)]="totalAllocatedBudget" 
+          placeholder="0"
+          (input)="evaluateFinancialBalancingMath()">
+      </div>
+    </div>
+
+    <div class="metric-display-card actual-cash-card" [ngClass]="{'deficit-alert': remainingActualBalance < 0}">
+      <span class="card-metric-lbl">ACTUAL AMOUNT REMAINING</span>
+      <h1 class="cash-grand-value">₹{{ remainingActualBalance | number:'1.0-0' }}</h1>
+      <p class="running-total-spent-lbl">Total Spent: ₹{{ totalMoneySpent | number:'1.0-0' }}</p>
+    </div>
+
+  </div>
+
+  <div class="transactional-bucket-card">
+    <h3>📝 Add Spent Transaction</h3>
+    
+    <div class="bucket-inputs-flex-row">
+      <div class="input-chassis flex-two">
+        <label for="tx-desc">Spent On (Description)</label>
+        <input id="tx-desc" type="text" [(ngModel)]="newTxDescription" placeholder="e.g., Groceries, Fuel, Cafe">
+      </div>
+
+      <div class="input-chassis flex-one">
+        <label for="tx-amount">Amount Spent</label>
+        <div class="input-currency-wrapper">
+          <span class="input-currency-prefix">₹</span>
+          <input id="tx-amount" type="number" [(ngModel)]="newTxAmount" placeholder="0">
+        </div>
+      </div>
+
+      <button type="button" class="inject-tx-btn" (click)="commitTransactionToBucket()">
+        Add Item
+      </button>
+    </div>
+  </div>
+
+  <div class="conversion-scale-card">
+    <div class="scale-header">
+      <span class="scale-icon">📋</span>
+      <div>
+        <h4>Transactional Ledger Bucket</h4>
+        <p>A history of all itemized entries reducing your total allocated balance:</p>
+      </div>
+    </div>
+
+    <div class="table-responsive-wrapper" *ngIf="transactionHistoryLog.length > 0">
+      <table class="clean-matrix-table">
+        <thead>
+          <tr>
+            <th>DATE</th>
+            <th>DESCRIPTION</th>
+            <th class="text-right">AMOUNT SPENT</th>
+            <th class="text-center">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tx of transactionHistoryLog; let idx = index">
+            <td class="date-dim-cell">{{ tx.dateStamp }}</td>
+            <td class="tx-desc-cell"><strong>{{ tx.description }}</strong></td>
+            <td class="tx-amount-cell text-right text-danger">- ₹{{ tx.amount | number:'1.0-0' }}</td>
+            <td class="text-center">
+              <button type="button" class="void-tx-btn" (click)="removeTransactionFromLedger(idx)">×</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="empty-ledger-notice-panel" *ngIf="transactionHistoryLog.length === 0">
+      🎉 Your transactional bucket is empty! No budget has been spent yet.
+    </div>
+  </div>
+
+</div>

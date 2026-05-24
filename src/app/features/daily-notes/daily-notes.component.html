@@ -1,0 +1,48 @@
+<div class="notes-module-container">
+
+  <header class="feature-title-row">
+    <h2>Daily Notes</h2>
+    <span class="draft-status-indicator" [class.editing]="isEditingMode">
+      {{ isEditingMode ? 'Editing Draft' : 'Saved to Local' }}
+    </span>
+  </header>
+
+  <div class="blueprint-card premium-memo-pad-card" [class.active-edit-focus]="isEditingMode">
+    
+    <div class="memo-view-layout" *ngIf="!isEditingMode" (click)="enableEditor()">
+      <div class="memo-meta-top-row">
+        <span class="calendar-date-badge">📅 {{ currentDateStamp }}</span>
+        <span class="quick-menu-dots">•••</span>
+      </div>
+      
+      <div class="memo-body-preview-area">
+        <h3 class="memo-preview-title">{{ noteTitle || 'Untitled Daily Entry' }}</h3>
+        <p class="memo-preview-text" [class.has-placeholder]="!noteContent">
+          {{ noteContent || 'Tap inside this card to capture your quick thoughts, daily blueprint reflections, or code snippets...' }}
+        </p>
+      </div>
+    </div>
+
+    <div class="memo-editor-layout" *ngIf="isEditingMode">
+      <div class="editor-actions-top-bar">
+        <span class="editor-mode-tag">Markdown Enabled</span>
+        <button class="save-draft-action-btn" (click)="saveAndCloseEditor()">✓ Keep Changes</button>
+      </div>
+
+      <input 
+        type="text" 
+        class="inline-editor-title-field" 
+        placeholder="Give your note a title..." 
+        [(ngModel)]="noteTitle">
+
+      <textarea 
+        class="inline-editor-textarea-field" 
+        placeholder="Start capturing your daily notes reflections, tasks, or metrics details..." 
+        [(ngModel)]="noteContent"></textarea>
+    </div>
+
+  </div>
+
+  <p class="canvas-footer-tip" *ngIf="!isEditingMode">💡 Tip: Changes are automatically saved back to local sandbox memory logs.</p>
+
+</div>

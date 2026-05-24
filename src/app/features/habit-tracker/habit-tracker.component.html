@@ -1,0 +1,77 @@
+<div class="habit-feature-card">
+
+  <div class="habit-header-section">
+    <div class="header-badge">Consistency Logs</div>
+    <div class="header-main-row">
+      <div>
+        <h1 class="habit-main-title">Habit Tracker</h1>
+        <p class="habit-subtitle">Build atomic routines. Complete daily loops to protect your streak.</p>
+      </div>
+      <button type="button" class="add-habit-inline-btn" (click)="openHabitDrawer()">＋ Habit</button>
+    </div>
+  </div>
+
+  <div class="new-habit-drawer-card" *ngIf="showAddDrawer">
+    <div class="drawer-header-strip">
+      <h3>⚡ Initialize Atomic Routine</h3>
+      <button type="button" class="close-drawer-btn" (click)="closeHabitDrawer()">×</button>
+    </div>
+    <div class="drawer-inputs-stack">
+      <div class="input-unit-card">
+        <label for="habit-name-field">Routine Name</label>
+        <input id="habit-name-field" type="text" [(ngModel)]="newHabitName" placeholder="e.g., Read 10 Pages">
+      </div>
+      <button type="button" class="commit-habit-btn" (click)="createNewHabitInstance()">
+        🚀 Lock Routine Into Streak Matrix
+      </button>
+    </div>
+  </div>
+
+  <div class="habit-circles-layout-grid">
+    
+    <div *ngFor="let habit of habitsList; let hIdx = index" 
+         class="habit-circle-card-chassis"
+         [ngClass]="{'habit-strikes-completed': calculateHabitCompletionPercentage(habit) === 100}">
+      
+      <div class="weekly-completion-popup-banner" *ngIf="calculateHabitCompletionPercentage(habit) === 100">
+        ✨ Weekly Track Cleared! Perfect Consistency! 👑
+      </div>
+
+      <div class="circular-progress-cluster">
+        <div class="outer-ring-donut" [style.background]="computeCircularProgressGradient(habit)">
+          <div class="inner-hole-core">
+            <span class="streak-flame-icon">🔥</span>
+            <span class="streak-counter-value">{{ habit.currentStreak }}</span>
+          </div>
+        </div>
+        <span class="habit-caption-title-lbl">{{ habit.name }}</span>
+      </div>
+
+      <div class="weekly-matrix-runway">
+        <span class="matrix-section-title">WEEKLY TRACK</span>
+        <div class="days-symbols-flex-row">
+          <div *ngFor="let day of habit.rollingSevenDays; let dIdx = index" 
+               class="round-day-symbol-button"
+               [class.completed-green-state]="day.done"
+               (click)="toggleDayCompletionStatus(hIdx, dIdx)">
+            <span class="day-letter-lbl">{{ day.dayLabel }}</span>
+            <span class="check-node-dot">●</span>
+          </div>
+        </div>
+        <p class="atomic-percentage-lbl">
+          Atomic Completion: <strong>{{ calculateHabitCompletionPercentage(habit) }}%</strong>
+        </p>
+      </div>
+
+      <button type="button" class="void-habit-row-btn" (click)="removeHabitInstance(hIdx)">×</button>
+
+    </div>
+
+  </div>
+
+  <div class="empty-habits-placeholder" *ngIf="habitsList.length === 0">
+    <span class="atomic-orbit-icon">🔄</span>
+    <p>No atomic habits locked in yet. Click the <strong>＋ Habit</strong> button at the top right!</p>
+  </div>
+
+</div>

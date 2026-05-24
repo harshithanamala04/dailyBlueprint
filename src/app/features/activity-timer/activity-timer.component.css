@@ -1,0 +1,204 @@
+/* src/app/features/activity-timer/activity-timer.component.css */
+
+.timer-feature-card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin-top: 16px;
+  border: 1px solid #eef0f3;
+}
+
+.timer-header-section {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.header-badge {
+  display: inline-block;
+  background-color: #f0f2ff;
+  color: #616eff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.header-main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timer-main-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #1a2530;
+  margin: 0 0 4px 0;
+}
+
+.timer-subtitle {
+  font-size: 0.84rem;
+  color: #7a8896;
+  margin: 0;
+}
+
+/* ➕ MODERN CALL-TO-ACTION BUTTON PROPERTIES */
+.add-timer-inline-btn {
+  background-color: #616eff;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(97, 110, 255, 0.25);
+  transition: background-color 0.15s ease;
+}
+
+.add-timer-inline-btn:hover { background-color: #4b59f5; }
+
+/* 📥 NEW TIMER DRAWER CARD STYLE MECHANIC */
+.new-timer-drawer-card {
+  background-color: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.drawer-header-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.drawer-header-strip h3 { font-size: 0.92rem; font-weight: 700; color: #1e293b; margin: 0; }
+.close-drawer-btn { background: none; border: none; font-size: 1.4rem; color: #94a3b8; cursor: pointer; line-height: 1; }
+
+.drawer-inputs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-unit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-unit-card label { font-size: 0.78rem; font-weight: 700; color: #475569; }
+.input-unit-card input {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  outline: none;
+}
+
+.input-duration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.commit-timer-btn {
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+/* ⏳ DYNAMIC COUNTDOWN TRACK ROWS STACK */
+.timer-instances-stack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timer-row-strip-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+  transition: all 0.2s ease;
+}
+
+.timer-context-meta { display: flex; gap: 12px; align-items: center; text-align: left; }
+.timer-icon-bullet { font-size: 1.3rem; }
+.meta-text-stack h4 { font-size: 0.92rem; font-weight: 700; color: #1e293b; margin: 0 0 2px 0; }
+.status-indicator-txt { font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin: 0; }
+
+.digital-clock-face {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #334155;
+  font-family: monospace;
+}
+
+.timer-action-controls-row { display: flex; gap: 6px; }
+
+.control-action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.run-btn   { background-color: #dcfce7; color: #15803d; font-weight: 700; }
+.pause-btn { background-color: #fef9c3; color: #a16207; }
+.reset-btn { background-color: #f1f5f9; color: #475569; }
+.kill-btn  { background-color: #fee2e2; color: #b91c1c; font-size: 1.1rem; }
+
+/* Dynamic Status Visual States matching live tracker states */
+.timer-row-strip-card.running-state { border-left: 4px solid #22c55e; background-color: #f8fdf9; }
+.timer-row-strip-card.running-state .digital-clock-face { color: #15803d; }
+
+.timer-row-strip-card.paused-state { border-left: 4px solid #eab308; background-color: #fefdf6; }
+
+.timer-row-strip-card.completed-state {
+  border-left: 4px solid #ef4444;
+  background-color: #fef2f2;
+  animation: pulse-alert 1.5s infinite;
+}
+.timer-row-strip-card.completed-state .digital-clock-face { color: #b91c1c; text-decoration: line-through; }
+
+/* Empty state dashboard elements */
+.empty-timers-placeholder-panel {
+  padding: 32px 16px;
+  background-color: #f8fafc;
+  border: 1px dashed #e2e8f0;
+  border-radius: 14px;
+}
+.sand-clock-icon { font-size: 1.8rem; display: inline-block; margin-bottom: 8px; }
+.empty-timers-placeholder-panel p { font-size: 0.82rem; color: #64748b; margin: 0; line-height: 1.4; }
+
+@keyframes pulse-alert {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.15); }
+  70% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}

@@ -1,0 +1,43 @@
+<div class="auth-desktop-canvas">
+  <div class="auth-central-box step-2-max">
+    
+    <div class="top-progress-runway-bar">
+      <div class="progress-filler-line"></div>
+    </div>
+
+    <h1 class="step-2-heading">What’s your name?</h1>
+
+    <div class="blueprint-card profile-setup-box-card">
+      
+      <div class="avatar-display-ring">
+        <div class="avatar-inner-placeholder">
+          <svg class="user-svg-avatar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+          </svg>
+        </div>
+      </div>
+
+      <button type="button" class="outline-provider-btn photo-btn">
+        <svg class="cam-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 9a3.75 3.75 0 100 7.5A3.75 3.75 0 0012 9z" />
+          <path fill-rule="evenodd" d="M9.344 3.071a2.25 2.25 0 012.112-1.321h1.088a2.25 2.25 0 012.112 1.321l1.102 3.149H19.5A3.375 3.375 0 0122.875 9.625v8.25A3.375 3.375 0 0119.5 21.25H4.5A3.375 3.375 0 011.125 17.875v-8.25A3.375 3.375 0 014.5 6.25h3.742l1.102-3.149zM12 7.5a5.25 5.25 0 100 10.5 5.25 5.25 0 000-10.5z" clip-rule="evenodd" />
+        </svg>
+        Upload photo
+      </button>
+
+      <div class="name-field-spacing">
+        <input 
+          type="text" 
+          class="clean-mobile-field plain-text-field" 
+          placeholder="Full Name" 
+          [(ngModel)]="userNameProfile">
+      </div>
+
+    </div>
+
+    <button type="button" class="prime-action-red-btn" (click)="finalizeAuthenticationSession()">
+      Next
+    </button>
+
+  </div>
+</div>

@@ -1,0 +1,149 @@
+/* src/app/auth/login/login.component.css */
+
+/* Centers the form box exactly inside your desktop screen workspace view */
+.auth-desktop-canvas {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.auth-central-box {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Precise Title Scale Matching your Mockup Images */
+.main-auth-heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  margin-bottom: 32px;
+}
+
+/* THE BOXED INPUT DETAILS CONTAINER */
+.credentials-input-card {
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  border-radius: 16px;
+  padding: 22px 20px;
+  margin-bottom: 24px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+}
+
+.form-input-stack-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-input-stack-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.form-input-stack-group label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+.label-row-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auxiliary-inline-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #6366f1; /* Matched cleanly with your periwinkle identity */
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.auxiliary-inline-link:hover {
+  text-decoration: underline;
+}
+
+.clean-mobile-field {
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  background-color: #ffffff;
+  outline: none;
+  font-weight: 600;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================================================================
+   🔘 APP ICON SIGNATURE BUTTON ADJUSTMENTS
+   ========================================================================= */
+.prime-action-brand-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #6366f1; /* Your application's signature periwinkle tone factor */
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;       /* Consistent rounded chassis corner styling maps */
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  transition: all 0.2s ease;
+}
+
+.prime-action-brand-btn:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.social-providers-stack {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.outline-provider-btn {
+  width: 100%;
+  padding: 12px 18px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #4b5563;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+  transition: all 0.2s ease;
+}
+
+.outline-provider-btn:hover {
+  background-color: #f9fafb;
+}
+
+.provider-brand-icon-google { color: #ea4335; font-weight: 900; }
+
+/* Legal Note elements placement adjustments */
+.legal-footer-text { font-size: 0.78rem; color: #6b7280; line-height: 1.5; padding: 0 12px; margin: 0; }
+.legal-link { font-weight: 700; text-decoration: underline; color: #4b5563; cursor: pointer; }

@@ -1,0 +1,214 @@
+/* src/app/features/expense-tracker/expense-tracker.component.css */
+
+.expense-feature-card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin-top: 16px;
+  border: 1px solid #eef0f3;
+}
+
+.expense-header-section {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.header-badge {
+  display: inline-block;
+  background-color: #ebfaf2;
+  color: #2a9d8f;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.expense-main-title { font-size: 1.55rem; font-weight: 800; color: #1a2530; margin: 0 0 4px 0; }
+.expense-subtitle { font-size: 0.84rem; color: #7a8896; margin: 0; line-height: 1.4; }
+
+/* 💰 THE TWO-SIDED METRIC SUBTRACTION DISPLAY PANELS GRID */
+.financial-metrics-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 480px) {
+  .financial-metrics-dashboard-grid { grid-template-columns: 1fr; }
+}
+
+.metric-display-card {
+  border-radius: 16px;
+  padding: 18px 14px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.card-metric-lbl {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* Left side: Pale Soft Blue Input Card Frame */
+.total-pool-card {
+  background-color: #eef5fc;
+  border: 1px solid #cbdff2;
+}
+
+.inline-budget-setter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.currency-symbol {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #3a86c8;
+}
+
+.budget-stealth-input {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #1e293b;
+  outline: none;
+  padding: 0;
+}
+
+/* Right side: Modern Soft Purple Balance Remaining Card Frame */
+.actual-cash-card {
+  background: linear-gradient(135deg, #f0f2ff 0%, #e6eaff 100%);
+  border: 1px solid #cbd2ff;
+}
+
+.cash-grand-value {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #616eff;
+  margin: 0 0 4px 0;
+  line-height: 1;
+}
+
+.running-total-spent-lbl {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #718096;
+  margin: 0;
+}
+
+/* Overdrawn Budget Deficit Visual Panic State */
+.actual-cash-card.deficit-alert {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+.actual-cash-card.deficit-alert .cash-grand-value { color: #dc2626; }
+
+/* 📥 ITEM INPUT LAYOUT STRIPS PANEL */
+.transactional-bucket-card {
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.transactional-bucket-card h3 { font-size: 0.9rem; font-weight: 700; color: #1e293b; margin: 0 0 14px 0; }
+
+.bucket-inputs-flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.input-chassis { display: flex; flex-direction: column; gap: 6px; }
+.flex-two { flex: 2; min-width: 160px; }
+.flex-one { flex: 1; min-width: 100px; }
+
+.input-chassis label { font-size: 0.74rem; font-weight: 700; color: #475569; }
+.input-chassis input {
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  outline: none;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.input-currency-wrapper { position: relative; display: flex; align-items: center; }
+.input-currency-prefix { position: absolute; left: 12px; font-size: 0.88rem; font-weight: 700; color: #94a3b8; }
+.input-currency-wrapper input { padding-left: 26px; }
+
+.inject-tx-btn {
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 40px;
+}
+
+/* 📜 TRANSACTION TABLES LEDGER PLATFORM */
+.conversion-scale-card { border: 1px solid #e2e8f0; padding: 16px; border-radius: 16px; text-align: left; }
+.scale-header { display: flex; gap: 12px; margin-bottom: 14px; }
+.scale-icon { font-size: 1.2rem; }
+.conversion-scale-card h4 { font-size: 0.9rem; font-weight: 700; color: #1e293b; margin: 0 0 2px 0; }
+.conversion-scale-card p { font-size: 0.76rem; color: #64748b; margin: 0; line-height: 1.3; }
+
+.table-responsive-wrapper { width: 100%; overflow-x: auto; margin-top: 12px; border-radius: 8px; border: 1px solid #f1f5f9; }
+.clean-matrix-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.clean-matrix-table th { background-color: #f8fafc; color: #64748b; font-weight: 700; padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+.clean-matrix-table td { padding: 12px; color: #334155; border-bottom: 1px solid #f1f5f9; }
+
+.date-dim-cell { color: #94a3b8 !important; font-size: 0.76rem; font-weight: 600; }
+.tx-desc-cell { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-danger { color: #ef4444; font-weight: 700; }
+
+.void-tx-btn {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.empty-ledger-notice-panel {
+  padding: 24px;
+  text-align: center;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 12px;
+}

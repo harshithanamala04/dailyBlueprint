@@ -1,0 +1,166 @@
+/* src/app/auth/names/names.component.css */
+
+/* Full view canvas canvas setting alignment variables */
+.auth-desktop-canvas {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.auth-central-box {
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+}
+
+/* 1. TOP PROGRESS TRACKING RUNWAY INDICATOR MATCED TO IMAGE 2 */
+.top-progress-runway-bar {
+  width: 100%;
+  height: 3px;
+  background-color: #f3f4f6;
+  margin-bottom: 48px;
+  border-radius: 2px;
+}
+
+.progress-filler-line {
+  width: 38%; 
+  height: 100%;
+  background-color: skyblue;
+}
+
+/* 2. TEXT DESIGN MATRICES VALUES SHAPE */
+.step-2-heading {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #111827;
+  text-align: left;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.5px;
+}
+
+/* 3. THE OUTER CARD WIDGET FRAME BOX CONTAINER */
+.profile-setup-box-card {
+  border: 1px solid #e5e7eb !important;
+  background-color: #f9fafb !important; /* Soft grayish-white base plate texture match */
+  border-radius: 12px !important;
+  padding: 40px 24px !important;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none !important;
+}
+
+/* Red Dashed Circle Ring Frame Grid Boundary */
+.avatar-display-ring {
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  border: 1.5px dashed #111827; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.avatar-inner-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-svg-avatar {
+  width: 52px;
+  height: 52px;
+  color: skyblue; 
+}
+
+/* 4. UPLOAD PHOTO OUTLINE BUTTON ELEMENT CONFIGURATION RULES MAPPING */
+.outline-provider-btn {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 20px; /* Smooth elegant pill vector radius button frame */
+  color: #374151;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease;
+}
+
+.outline-provider-btn:hover {
+  background-color: #f3f4f6;
+  border-color: #cbd5e1;
+}
+
+.cam-svg-icon {
+  width: 16px;
+  height: 16px;
+  color: #4b5563;
+}
+
+/* 5. TEXT CONTENT INPUT CHASSIS FRAME BASELINE MAPS */
+.name-field-spacing {
+  width: 100%;
+}
+
+.clean-mobile-field {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #111827;
+  background-color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  text-align: left;
+  transition: border-color 0.15s ease;
+}
+
+.clean-mobile-field:focus {
+  border-color: black;
+  box-shadow: 0 0 0 3px rgba(219, 76, 63, 0.08);
+}
+
+/* =========================================================================
+   🔘 SOLID HIGH-VIBRANCY RED SELECTION NAVIGATION ACTION TRIGGER NEXT BUTTON
+   ========================================================================= */
+.prime-action-red-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: skyblue;
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;       /* Long complete solid sleek rounded pill profile layout button */
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(219, 76, 63, 0.2);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.prime-action-red-btn:hover {
+  background-color:darkturquoise;
+}
+
+.prime-action-red-btn:active {
+  transform: scale(0.99);
+}

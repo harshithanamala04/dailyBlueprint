@@ -1,0 +1,185 @@
+.habit-feature-card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin-top: 16px;
+  border: 1px solid #eef0f3;
+}
+
+.habit-header-section { text-align: left; margin-bottom: 24px; }
+.header-badge { display: inline-block; background-color: #e8f5f3; color: #2a9d8f; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; margin-bottom: 10px; }
+.header-main-row { display: flex; justify-content: space-between; align-items: center; }
+.habit-main-title { font-size: 1.55rem; font-weight: 800; color: #1a2530; margin: 0 0 4px 0; }
+.habit-subtitle { font-size: 0.84rem; color: #7a8896; margin: 0; }
+
+.add-habit-inline-btn {
+  background-color: #2a9d8f;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(42, 157, 143, 0.25);
+}
+
+.new-habit-drawer-card {
+  background-color: #f4faf8;
+  border: 1.5px dashed #a8dadc;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.drawer-header-strip { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.drawer-header-strip h3 { font-size: 0.9rem; font-weight: 700; color: #1e293b; margin: 0; }
+.close-drawer-btn { background: none; border: none; font-size: 1.4rem; color: #94a3b8; cursor: pointer; line-height: 1; }
+
+.drawer-inputs-stack { display: flex; flex-direction: column; gap: 12px; }
+.input-unit-card { display: flex; flex-direction: column; gap: 6px; }
+.input-unit-card label { font-size: 0.76rem; font-weight: 700; color: #475569; }
+.input-unit-card input { padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.9rem; font-weight: 600; outline: none; background-color: #ffffff; }
+
+.commit-habit-btn {
+  background-color: #1d3557;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.habit-circles-layout-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.habit-circle-card-chassis {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative; /* 🌟 CRITICAL: Keeps absolute elements anchored safely inside */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 580px) {
+  .habit-circle-card-chassis { flex-direction: column; text-align: center; gap: 14px; padding-top: 24px; }
+}
+
+.circular-progress-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 120px;
+}
+
+.outer-ring-donut {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-hole-core {
+  width: 58px;
+  height: 58px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.streak-counter-value { font-size: 1.15rem; font-weight: 900; color: #0f172a; }
+.habit-caption-title-lbl { font-size: 0.88rem; font-weight: 700; color: #1e293b; }
+
+.weekly-matrix-runway {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .weekly-matrix-runway { align-items: center; }
+}
+
+.matrix-section-title { font-size: 0.65rem; font-weight: 800; color: #94a3b8; letter-spacing: 0.8px; }
+.days-symbols-flex-row { display: flex; gap: 8px; width: 100%; justify-content: space-between; max-width: 320px; }
+
+.round-day-symbol-button {
+  width: 36px;
+  height: 42px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.day-letter-lbl { font-size: 0.72rem; font-weight: 800; color: #64748b; }
+.check-node-dot { font-size: 0.6rem; color: #cbd5e1; }
+
+.round-day-symbol-button.completed-green-state {
+  background-color: #dcfce7;
+  border-color: #86efac;
+}
+.round-day-symbol-button.completed-green-state .day-letter-lbl { color: #15803d; }
+.round-day-symbol-button.completed-green-state .check-node-dot { color: #22c55e; }
+
+.atomic-percentage-lbl { font-size: 0.74rem; color: #64748b; margin: 0; }
+
+.void-habit-row-btn { position: absolute; top: 12px; right: 12px; background: none; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; }
+.empty-habits-placeholder { padding: 32px 16px; background-color: #f8fafc; border: 1px dashed #e2e8f0; border-radius: 14px; text-align: center; }
+.atomic-orbit-icon { font-size: 1.8rem; color: #94a3b8; }
+
+/* 👑 COMPLETION VISUAL CELEBRATIONS */
+.habit-strikes-completed .habit-caption-title-lbl {
+  text-decoration: line-through;
+  color: #94a3b8 !important;
+}
+
+.habit-circle-card-chassis.habit-strikes-completed {
+  border-color: #86efac;
+  background-color: #fafdff;
+  padding-top: 38px;
+}
+
+.weekly-completion-popup-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #2a9d8f 0%, #2ec4b6 100%);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 5px 0;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}

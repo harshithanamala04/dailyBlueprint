@@ -1,0 +1,210 @@
+/* src/app/features/special-days/special-days.component.css */
+
+.events-feature-card {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin: 20px auto 0 auto;
+  border: 1px solid #eef0f3;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.events-header-section { 
+  text-align: left; 
+  margin-bottom: 24px; 
+}
+
+.header-badge { 
+  display: inline-block; 
+  background-color: #fffbe8; 
+  color: #d97706; 
+  font-size: 0.72rem; 
+  font-weight: 700; 
+  padding: 4px 10px; 
+  border-radius: 8px; 
+  text-transform: uppercase; 
+  margin-bottom: 10px; 
+  letter-spacing: 0.5px; 
+}
+
+.header-main-row { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.events-main-title { 
+  font-size: 1.55rem; 
+  font-weight: 800; 
+  color: #1a2530; 
+  margin: 0 0 4px 0; 
+}
+
+.events-subtitle { 
+  font-size: 0.84rem; 
+  color: #7a8896; 
+  margin: 0; 
+  line-height: 1.4;
+}
+
+.add-event-inline-btn {
+  background-color: #ff9f1c;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(255, 159, 28, 0.25);
+  transition: background-color 0.2s;
+}
+.add-event-inline-btn:hover {
+  background-color: #e08610;
+}
+
+/* 📥 INLINE DRAWER COVERS */
+.new-event-drawer-card {
+  background-color: #fffbf5;
+  border: 1.5px dashed #fbd38d;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.drawer-header-strip { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.drawer-header-strip h3 { font-size: 0.9rem; font-weight: 700; color: #1e293b; margin: 0; }
+.close-drawer-btn { background: none; border: none; font-size: 1.4rem; color: #94a3b8; cursor: pointer; line-height: 1; }
+
+.drawer-inputs-stack { display: flex; flex-direction: column; gap: 12px; }
+.input-unit-card { display: flex; flex-direction: column; gap: 6px; }
+.input-unit-card label { font-size: 0.76rem; font-weight: 700; color: #475569; }
+.input-unit-card input { padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.9rem; font-weight: 600; outline: none; background-color: #ffffff; width: 100%; box-sizing: border-box; }
+
+.commit-event-btn {
+  background-color: #2c5282;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* ⏳ ROW LIST CARD STRIPS */
+.events-timeline-list-stack { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; 
+}
+
+.event-row-strip-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+  box-sizing: border-box;
+}
+
+.event-context-meta { 
+  display: flex; 
+  gap: 14px; 
+  align-items: center; 
+  text-align: left; 
+}
+
+.event-icon-bullet { 
+  font-size: 1.3rem; 
+}
+
+.meta-text-stack h4 { 
+  font-size: 0.95rem; 
+  font-weight: 700; 
+  color: #1e293b; 
+  margin: 0 0 2px 0; 
+}
+
+.calendar-date-lbl-dim { 
+  font-size: 0.78rem; 
+  font-weight: 600; 
+  color: #94a3b8; 
+  margin: 0; 
+}
+
+/* 🛡️ COUNTDOWN DISPLAY TAG BADGE */
+.countdown-badge-shield {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 75px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background-color: #f1f5f9;
+  box-sizing: border-box;
+}
+
+.days-numeric-val { 
+  font-size: 1.1rem; 
+  font-weight: 900; 
+  color: #334155; 
+  line-height: 1; 
+}
+
+.days-text-lbl { 
+  font-size: 0.58rem; 
+  font-weight: 700; 
+  color: #64748b; 
+  text-transform: uppercase; 
+  margin-top: 3px; 
+}
+
+.today-celebration-txt { font-size: 0.76rem; font-weight: 800; color: #15803d; }
+.past-event-txt { font-size: 0.72rem; font-weight: 700; color: #94a3b8; }
+
+/* 🎨 CONDITIONAL URGENCY SCHEMES */
+.event-row-strip-card.urgency-today { border-left: 4px solid #22c55e; background-color: #f0fdf4; }
+.event-row-strip-card.urgency-today .countdown-badge-shield { background-color: #bbf7d0; }
+
+.event-row-strip-card.urgency-imminent { border-left: 4px solid #ef4444; background-color: #fff5f5; }
+.event-row-strip-card.urgency-imminent .countdown-badge-shield { background-color: #fed7d7; }
+.event-row-strip-card.urgency-imminent .days-numeric-val { color: #c53030; }
+
+.event-row-strip-card.urgency-moderate { border-left: 4px solid #ff9f1c; background-color: #fffaf0; }
+.event-row-strip-card.urgency-moderate .countdown-badge-shield { background-color: #feebc8; }
+
+.event-row-strip-card.urgency-passed { border-left: 4px solid #cbd5e1; background-color: #f8fafc; opacity: 0.75; }
+
+.void-event-row-btn { 
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.void-event-row-btn:hover {
+  background-color: #fca5a5;
+}
+
+.empty-events-placeholder-panel { padding: 32px 16px; background-color: #f8fafc; border: 1px dashed #e2e8f0; border-radius: 14px; text-align: center; }
+.confetti-icon { font-size: 1.8rem; display: inline-block; margin-bottom: 8px; }
+.empty-events-placeholder-panel p { font-size: 0.82rem; color: #64748b; margin: 0; line-height: 1.4; }

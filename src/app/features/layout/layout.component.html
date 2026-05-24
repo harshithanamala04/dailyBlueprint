@@ -1,0 +1,83 @@
+<div class="dashboard-master-chassis">
+
+  <aside class="left-sidebar-navigation-panel">
+    
+    <div class="sidebar-branding-wrapper">
+      <div class="brand-logo-node">📘</div>
+      <h2 class="brand-title-text">DailyBlueprint</h2>
+    </div>
+
+    <nav class="sidebar-nav-links-stack">
+      
+      <div class="nav-section-divider-lbl">Core Workspace</div>
+      
+      <a class="sidebar-nav-link-item" routerLink="/app/daily-plan" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">📅</span>
+        <span class="nav-text-label">Daily Plan</span>
+      </a>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/daily-notes" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">📝</span>
+        <span class="nav-text-label">Daily Notes</span>
+      </a>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/habit-tracker" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">✅</span>
+        <span class="nav-text-label">Habit Tracker</span>
+      </a>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/activity-timer" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">⏱️</span>
+        <span class="nav-text-label">Activity Timer</span>
+      </a>
+
+      <div class="nav-section-divider-lbl">Calculators & Metrics</div>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/expense-tracker" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">💳</span>
+        <span class="nav-text-label">Expense Tracker</span>
+      </a>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/interest-calculator" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">📊</span>
+        <span class="nav-text-label">Interest Calc</span>
+      </a>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/bmi-calculator" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">⚖️</span>
+        <span class="nav-text-label">BMI Calculator</span>
+      </a>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/age-calculator" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">🎂</span>
+        <span class="nav-text-label">Age Calculator</span>
+      </a>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/special-days" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">🎉</span>
+        <span class="nav-text-label">Special Days</span>
+      </a>
+
+      <a class="sidebar-nav-link-item" routerLink="/app/her-cycle" routerLinkActive="active-nav-route">
+        <span class="nav-icon-bullet">🌸</span>
+        <span class="nav-text-label">Period Tracker</span>
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer-action-wrapper">
+      <button type="button" class="sidebar-signout-btn" (click)="executeSystemSignOut()">
+        <span class="signout-icon">🚪</span>
+        <span class="signout-text">Sign Out</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <main class="main-content-display-viewport">
+    <div class="centered-view-limiter-container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+</div>

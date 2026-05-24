@@ -1,0 +1,210 @@
+/* src/app/features/daily-notes/daily-notes.component.css */
+
+.notes-module-container {
+  width: 100%;
+  animation: slideInFadeUp 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.plan-feature-card {
+  width: 100%;
+  max-width: 850px;       /* 🚀 Restrains the card from stretching infinitely edge-to-edge */
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin: 20px auto 0 auto; /* 🚀 Auto-centers the card horizontally within the empty view space */
+  border: 1px solid #eef0f3;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.feature-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.feature-title-row h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.draft-status-indicator {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #eef2ff;
+  color: #6366f1;
+  padding: 4px 12px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.draft-status-indicator.editing {
+  background-color: #fffbeb;
+  color: #f59e0b;
+}
+
+/* Redesigned Soft Amethyst Notepad Surface Card Blueprint */
+.premium-memo-pad-card {
+  background-color: #faf5ff !important; /* Premium soft tinted lavender-amethyst notepad backing surface */
+  border: 1px solid #f3e8ff !important;
+  border-radius: 20px !important;
+  padding: 24px !important;
+  cursor: pointer;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.02) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.premium-memo-pad-card:hover {
+  border-color: #e9d5ff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(147, 51, 234, 0.04) !important;
+}
+
+/* High-focus active shadow glowing outlines on entry editing */
+.premium-memo-pad-card.active-edit-focus {
+  background-color: #ffffff !important;
+  border-color: #c084fc !important;
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.06) !important;
+  cursor: default;
+}
+
+/* Static viewing mode styles element layouts alignments mapping */
+.memo-meta-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-date-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #a855f7; /* High visibility vibrant violet date font token */
+  background-color: #f3e8ff;
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+.quick-menu-dots {
+  color: #9333ea;
+  opacity: 0.4;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.memo-body-preview-area {
+  text-align: left;
+}
+
+.memo-preview-title {
+  margin: 0 0 10px 0;
+  font-size: 1.15rem;
+  color: #1f2937;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.memo-preview-text {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #4b5563;
+  line-height: 1.5;
+  white-space: pre-wrap; /* Essential: respects paragraph lines spacing mappings gracefully on rendering views */
+}
+
+.memo-preview-text.has-placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Interactive form notepad inputs writing workspace fields architecture */
+.memo-editor-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.editor-actions-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px dashed #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.editor-mode-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #9ca3af;
+  letter-spacing: 0.5px;
+}
+
+.save-draft-action-btn {
+  background-color: #a855f7;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(168, 85, 247, 0.2);
+  transition: all 0.15s ease;
+}
+
+.save-draft-action-btn:hover {
+  background-color: #9333ea;
+  transform: translateY(-1px);
+}
+
+.inline-editor-title-field {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1f2937;
+  padding: 4px 0 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 14px;
+  outline: none;
+}
+
+.inline-editor-textarea-field {
+  width: 100%;
+  min-height: 200px;
+  background: transparent;
+  border: none;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.canvas-footer-tip {
+  margin: 14px 0 0 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-align: left;
+}
+
+@keyframes slideInFadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}

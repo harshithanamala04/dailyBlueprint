@@ -1,0 +1,91 @@
+<div class="plan-feature-card">
+
+  <div class="plan-header-section">
+    <div class="header-badge">Day Runway</div>
+    <div class="header-main-row">
+      <div>
+        <h1 class="plan-main-title">Planning the Day😉</h1>
+        <p class="plan-subtitle">Architect your day, prioritize critical objectives, and hit 100% execution.</p>
+      </div>
+      <button type="button" class="add-plan-inline-btn" (click)="openPlanDrawer()">＋ Objective</button>
+    </div>
+  </div>
+
+  <div class="new-plan-drawer-card" *ngIf="showAddDrawer">
+    <div class="drawer-header-strip">
+      <h3>⚡ Schedule Day Objective</h3>
+      <button type="button" class="close-drawer-btn" (click)="closePlanDrawer()">×</button>
+    </div>
+    
+    <div class="drawer-inputs-stack">
+      <div class="input-unit-card">
+        <label for="plan-text-field">Objective / Task</label>
+        <input id="plan-text-field" type="text" [(ngModel)]="newPlanText" placeholder="e.g., Review Spring Boot APIs, Fix layout CSS bugs">
+      </div>
+      
+      <div class="input-duration-grid">
+        <div class="input-unit-card">
+          <label for="plan-time-field">Target Time</label>
+          <input id="plan-time-field" type="time" [(ngModel)]="newPlanTime">
+        </div>
+        <div class="input-unit-card">
+          <label for="plan-priority-field">Priority Rank</label>
+          <select id="plan-priority-field" [(ngModel)]="newPlanPriority" class="clean-select-field">
+            <option value="high">🔴 High Priority</option>
+            <option value="medium">🟡 Medium Priority</option>
+            <option value="low">🔵 Low Priority</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="commit-plan-btn" (click)="createNewPlanInstance()">
+        🚀 Lock Into Daily Timeline
+      </button>
+    </div>
+  </div>
+
+  <div class="plan-score-grand-display" *ngIf="plansList.length > 0">
+    <div class="performance-ring-donut" [style.background]="computeProgressRingGradient()">
+      <div class="inner-core-hole">
+        <span class="completion-percentage-num">{{ calculateCompletionPercentage() }}%</span>
+        <span class="completion-sub-text">Executed</span>
+      </div>
+    </div>
+    <div class="performance-meta-details">
+      <h3>Daily Execution Yield</h3>
+      <p>Cleared <strong>{{ totalCompletedPlans() }}</strong> out of <strong>{{ plansList.length }}</strong> planned objectives.</p>
+      <div class="motivational-pill" *ngIf="calculateCompletionPercentage() === 100">👑 Perfect Day Cleared!</div>
+      <div class="motivational-pill loading-state-pill" *ngIf="calculateCompletionPercentage() < 100 && calculateCompletionPercentage() > 0">⚡ Momentum Building!</div>
+    </div>
+  </div>
+
+  <div class="timeline-runway-container">
+    
+    <div *ngFor="let plan of plansList; let idx = index" 
+         class="timeline-node-card-row"
+         [ngClass]="['priority-' + plan.priority, plan.completed ? 'node-done-state' : '']">
+      
+      <div class="checkbox-interactive-zone" (click)="togglePlanCompletion(idx)">
+        <div class="custom-checkbox-circle">
+          <span class="checkmark-icon" *ngIf="plan.completed">✓</span>
+        </div>
+      </div>
+
+      <div class="timeline-content-stack">
+        <div class="time-stamp-badge">{{ formatDisplayTime(plan.timeTarget) }}</div>
+        <h4 class="plan-text-content">{{ plan.text }}</h4>
+        <span class="priority-label-badge">{{ plan.priority }} priority</span>
+      </div>
+
+      <button type="button" class="void-plan-node-btn" (click)="removePlanInstance(idx)">×</button>
+
+    </div>
+
+    <div class="empty-plans-placeholder-panel" *ngIf="plansList.length === 0">
+      <span class="blueprint-icon">🗺️</span>
+      <p>Your blueprint schedule is wide open. Click the <strong>＋ Objective</strong> button to engineer your timeline!</p>
+    </div>
+
+  </div>
+
+</div>

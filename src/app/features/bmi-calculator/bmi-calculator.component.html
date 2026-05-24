@@ -1,0 +1,144 @@
+<div class="bmi-feature-card">
+  
+  <div class="bmi-header-section">
+    <div class="header-badge">Health Metrics</div>
+    <h1 class="bmi-main-title">Body Mass Index</h1>
+    <p class="bmi-subtitle">Enter your details below to instantly review your weight classification status.</p>
+  </div>
+
+  <div class="unit-system-toggle-bar">
+    <button 
+      type="button" 
+      class="toggle-tab" 
+      [class.active]="unitSystem === 'metric'" 
+      (click)="changeUnitSystem('metric')">
+      Metric (kg / cm)
+    </button>
+    <button 
+      type="button" 
+      class="toggle-tab" 
+      [class.active]="unitSystem === 'imperial'" 
+      (click)="changeUnitSystem('imperial')">
+      Imperial (lbs / inches)
+    </button>
+  </div>
+
+  <div class="bmi-score-grand-display" [ngClass]="getBmiCategoryClass()">
+    <span class="score-lbl">YOUR BMI INDEX</span>
+
+    <ng-container *ngIf="bmiResultScore !== null && bmiResultScore > 0">
+      <h1 class="score-grand-value">
+        {{ bmiResultScore | number:'1.1-1' }}
+      </h1>
+      <div class="status-pill">
+        {{ bmiResultStatus }}
+      </div>
+      <p class="ideal-weight-guidance" *ngIf="healthyWeightRange">
+        Healthy weight range for your height: <strong>{{ healthyWeightRange }}</strong>
+      </p>
+    </ng-container>
+
+    <ng-container *ngIf="bmiResultScore === null || bmiResultScore <= 0">
+      <h1 class="score-grand-value">--</h1>
+      <p class="score-status-text">
+        Enter metrics to calculate
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="bmi-input-form-group">
+    
+    <div class="form-input-stack-card">
+      <label for="bmi-weight-field" class="field-descriptive-lbl">
+        <span>⚖️ Weight</span>
+        <span class="unit-counter-value-purple">
+          {{ userWeight ? userWeight : 0 }} {{ unitSystem === 'metric' ? 'kg' : 'lbs' }}
+        </span>
+      </label>
+      <div class="input-with-inline-addon">
+        <input 
+          id="bmi-weight-field"
+          type="number" 
+          class="clean-mobile-field" 
+          [placeholder]="unitSystem === 'metric' ? 'e.g., 70' : 'e.g., 154'" 
+          [(ngModel)]="userWeight"
+          (input)="runBmiComputationEngine()">
+        <span class="inline-addon-label">{{ unitSystem === 'metric' ? 'kg' : 'lbs' }}</span>
+      </div>
+    </div>
+
+    <div class="form-input-stack-card">
+      <label for="bmi-height-field" class="field-descriptive-lbl">
+        <span>📏 Height</span>
+        <span class="unit-counter-value-purple">
+          {{ userHeight ? userHeight : 0 }} {{ unitSystem === 'metric' ? 'cm' : 'inches' }}
+        </span>
+      </label>
+      <div class="input-with-inline-addon">
+        <input 
+          id="bmi-height-field"
+          type="number" 
+          class="clean-mobile-field" 
+          [placeholder]="unitSystem === 'metric' ? 'e.g., 175' : 'e.g., 68'" 
+          [(ngModel)]="userHeight"
+          (input)="runBmiComputationEngine()">
+        <span class="inline-addon-label">{{ unitSystem === 'metric' ? 'cm' : 'inches' }}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="conversion-scale-card">
+    <div class="scale-header">
+      <span class="scale-icon">💡</span>
+      <div>
+        <h4>Standard Weight Classifications</h4>
+        <p>BMI values are organized according to World Health Organization (WHO) protocols:</p>
+      </div>
+    </div>
+
+    <div class="table-responsive-wrapper">
+      <table class="clean-matrix-table">
+        <thead>
+          <tr>
+            <th>BMI RANGE</th>
+            <th>CLASSIFICATION</th>
+            <th>HEALTH RISK</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [class.highlight-row]="getBmiCategoryClass() === 'bmi-underweight'">
+            <td>Below 18.5</td>
+            <td><span class="dot underweight-dot">●</span> Underweight</td>
+            <td>Minimal to Moderate</td>
+          </tr>
+          <tr [class.highlight-row]="getBmiCategoryClass() === 'bmi-normal'">
+            <td>18.5 – 24.9</td>
+            <td><span class="dot normal-dot">●</span> Normal (Healthy)</td>
+            <td>Very Low</td>
+          </tr>
+          <tr [class.highlight-row]="getBmiCategoryClass() === 'bmi-overweight'">
+            <td>25.0 – 29.9</td>
+            <td><span class="dot overweight-dot">●</span> Overweight</td>
+            <td>Increased</td>
+          </tr>
+          <tr [class.highlight-row]="getBmiCategoryClass() === 'bmi-obese'">
+            <td>30.0 and Above</td>
+            <td><span class="dot obese-dot">●</span> Obese</td>
+            <td>High / Severe</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="quick-calculator-tip-box">
+      <h5>📏 Quick Conversion Reference</h5>
+      <ul>
+        <li><strong>Feet to Inches:</strong> Multiply feet by 12 and add the remaining inches (e.g., 5'4" = 60 + 4 = 64 inches).</li>
+        <li><strong>cm to Meters:</strong> Shift the decimal point two spaces left (e.g., 175 cm = 1.75 m).</li>
+        <li><strong>kg to lbs:</strong> Multiply kilograms by 2.205.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
