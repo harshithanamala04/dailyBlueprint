@@ -1,49 +1,58 @@
-<div class="auth-desktop-canvas">
-  <div class="auth-central-box">
+<div class="auth-container">
+  <div class="auth-card">
     
-    <h1 class="main-auth-heading">Daily<br>Blueprint</h1>
+    <div class="auth-header">
+      <h2>{{ isRegisterMode ? 'Create Your Account' : 'Welcome Back' }}</h2>
+      <p>{{ isRegisterMode ? 'Sign up to launch your personalized blueprint workspace' : 'Sign in to access your daily dashboard tracks' }}</p>
+    </div>
 
-    <div class="credentials-input-card">
-      
-      <div class="form-input-stack-group">
-        <label for="userEmail">Email Address</label>
+    <div class="error-alert" *ngIf="errorMessage">
+      ⚠ {{ errorMessage }}
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #authForm="ngForm">
+      <div class="form-group">
+        <label for="email">Email Address</label>
         <input 
           type="email" 
-          id="userEmail" 
-          class="clean-mobile-field" 
-          placeholder="name@company.com" 
-          [(ngModel)]="loginEmail">
+          id="email" 
+          name="email" 
+          [(ngModel)]="email" 
+          placeholder="e.g., student@example.com" 
+          required>
       </div>
 
-      <div class="form-input-stack-group">
-        <div class="label-row-meta">
-          <label for="userPassword">Password</label>
-          <a class="auxiliary-inline-link" (click)="triggerPasswordReset()">Forgot Password?</a>
-        </div>
+      <div class="form-group">
+        <label for="password">Password</label>
         <input 
           type="password" 
-          id="userPassword" 
-          class="clean-mobile-field" 
+          id="password" 
+          name="password" 
+          [(ngModel)]="password" 
           placeholder="••••••••" 
-          [(ngModel)]="loginPassword">
+          required>
       </div>
 
-    </div>
-
-    <button type="button" class="prime-action-brand-btn" (click)="goToNextStep()">
-      <span class="btn-icon-slot"></span> Continue with Email
-    </button>
-
-    <div class="social-providers-stack">
-      <button type="button" class="outline-provider-btn">
-        <span class="provider-brand-icon-google"></span> Continue with Google
+      <button type="submit" class="auth-submit-btn" [disabled]="loading">
+        <span *ngIf="!loading">{{ isRegisterMode ? 'Register Account' : 'Login' }}</span>
+        <span *ngIf="loading">Processing Tracking Authentication...</span>
       </button>
+    </form>
+
+    <div class="auth-divider">
+      <span>or</span>
     </div>
 
-    <p class="legal-footer-text">
-      By continuing with the services above, you agree to Todoist's 
-      <a class="legal-link">Terms of Service</a> and <a class="legal-link">Privacy Policy</a>.
-    </p>
+    <div class="auth-toggle-footer">
+      <p *ngIf="!isRegisterMode">
+        New to DailyBlueprint? 
+        <a href="javascript:void(0)" (click)="toggleMode()">Create an account</a>
+      </p>
+      <p *ngIf="isRegisterMode">
+        Already tracking with us? 
+        <a href="javascript:void(0)" (click)="toggleMode()">Sign back in</a>
+      </p>
+    </div>
 
   </div>
 </div>

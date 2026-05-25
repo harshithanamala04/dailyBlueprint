@@ -1,14 +1,24 @@
 /* src/app/features/layout/layout.component.css */
 
+/* ==========================================================================
+   🖥️ DESKTOP MASTER ENVIRONMENT MAIN LAYOUT ARCHITECTURE
+   ========================================================================== */
+
 .dashboard-master-chassis {
   display: flex;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: #f8fafc; /* Premium smooth grayish tint background canvas */
+  background-color: #f8fafc;
 }
 
-/* 🧭 SIDEBAR PANEL CONTAINER HOOKS */
+/* ❌ HIDE INTERACTIVE MOBILE HEADER AND BACKDROP OVERLAYS ON DESKTOP SCREENS */
+.mobile-top-navbar-header,
+.mobile-sidebar-backdrop-overlay {
+  display: none !important;
+}
+
+/* 🧭 SIDEBAR PANEL GRID MECHANICS */
 .left-sidebar-navigation-panel {
   width: 260px;
   min-width: 260px;
@@ -31,7 +41,7 @@
 .brand-logo-node { font-size: 1.5rem; }
 .brand-title-text { font-size: 1.15rem; font-weight: 800; color: #4f46e5; margin: 0; }
 
-/* Scrollable Inner Nav Link Tracks Stack */
+/* Scrollable Links Sidebar Stack Track */
 .sidebar-nav-links-stack {
   flex: 1;
   padding: 16px 12px;
@@ -50,12 +60,12 @@
   padding: 14px 12px 6px 12px;
 }
 
-/* Nav Link Item Anchors */
+/* Link Nav Anchors */
 .sidebar-nav-link-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
+  padding: 12px 14px;
   color: #475569;
   text-decoration: none;
   font-weight: 600;
@@ -65,7 +75,7 @@
 }
 .sidebar-nav-link-item:hover { background-color: #f1f5f9; color: #1e293b; }
 
-/* 🔵 ACTIVE HIGHLIGHT STATE ROUTE DESIGN LAYER */
+/* 🔵 ACTIVE STATE HIGHLIGHT LINK PATH SYSTEM ROUTING */
 .sidebar-nav-link-item.active-nav-route {
   background-color: #eeefff;
   color: #616eff;
@@ -75,11 +85,12 @@
 .nav-icon-bullet { font-size: 1.1rem; display: inline-block; transition: transform 0.2s; }
 .nav-text-label { line-height: 1; }
 
-/* 🚪 FOOTER SECTION WITH UTILITY BUTTONS */
+/* 🚪 FOOTER WRAPPER BLOCK STACKS */
 .sidebar-footer-action-wrapper {
   padding: 16px 12px;
   border-top: 1px solid #f1f5f9;
   background-color: #fafafa;
+  margin-top: auto; /* Securely pins signout container block straight to sidebar bottom grid */
 }
 
 .sidebar-signout-btn {
@@ -87,7 +98,7 @@
   background-color: #fee2e2;
   color: #b91c1c;
   border: none;
-  padding: 10px 14px;
+  padding: 12px 14px;
   font-weight: 700;
   font-size: 0.86rem;
   border-radius: 10px;
@@ -100,7 +111,7 @@
 }
 .sidebar-signout-btn:hover { background-color: #fca5a5; }
 
-/* 🎽 RESPONSIVE RIGHT MAIN VIEWPORT CANVAS */
+/* 🎽 MAIN VIEWPORT FRAMES DISPLAY CANVASES */
 .main-content-display-viewport {
   flex: 1;
   height: 100%;
@@ -116,12 +127,147 @@
   padding-bottom: 40px;
 }
 
-/* Responsive breakpoint layout adaptation for small mobile viewports */
+
+/* ==========================================================================
+   📱 MOBILE HAMBURGER FLY-OUT PASTEL SIDEBAR DRAWER (Under 768px Screens)
+   ========================================================================== */
 @media (max-width: 768px) {
-  .dashboard-master-chassis { flex-direction: column; }
-  .left-sidebar-navigation-panel { width: 100%; height: auto; min-width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; }
-  .sidebar-nav-links-stack { flex-direction: row; overflow-x: auto; overflow-y: hidden; padding: 10px; }
-  .nav-section-divider-lbl { display: none; }
-  .sidebar-branding-wrapper { padding: 12px 16px; }
-  .main-content-display-viewport { padding: 16px; }
+  
+  .dashboard-master-chassis { 
+    flex-direction: column; 
+  }
+
+  /* ✅ Activates the clean mobile top navbar row frame */
+  .mobile-top-navbar-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+    position: relative;
+  }
+
+  .mobile-brand-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mobile-brand-title .brand-title-text {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  /* Sleek Minimalist ☰ Icon Toggle Button */
+  .mobile-hamburger-menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #4b3f5c;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+
+  /* 🚀 REMOVES THE FLAT CROWDED TOP ROW AND CONVERTS INTO A SMOOTH HIDDEN SIDE SLIDE DRAWER */
+  .left-sidebar-navigation-panel {
+    position: fixed !important; /* Pull out of visual viewflow grid context */
+    top: 0;
+    left: -280px; /* Kept fully off-screen right by default */
+    width: 280px;
+    min-width: 280px;
+    height: 100vh;
+    z-index: 9999; /* Floats perfectly above task canvas files */
+    box-shadow: 5px 0 25px rgba(142, 124, 195, 0.15);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* High performance accelerated glide */
+    border-right: 1px solid #e2e8f0;
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  /* 🔓 Smoothly slides open when the TS toggle property turns true */
+  .left-sidebar-navigation-panel.mobile-drawer-pulled-open {
+    left: 0 !important; 
+  }
+
+  /* Restores neat vertical scrollability for all 10 components inside the drawer */
+  .sidebar-nav-links-stack {
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 20px 14px !important;
+    gap: 6px !important;
+  }
+
+  /* Display section text labels beautifully inside the slide navigation menu */
+  .nav-section-divider-lbl {
+    display: block !important;
+    padding: 12px 12px 4px 12px;
+  }
+
+  /* Beautiful layout styling format for link components inside mobile drawer view */
+  .sidebar-nav-link-item {
+    flex: 0 0 auto !important;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #6a5d7b;
+    background-color: #fff9fb; /* Soft pink-white pastel base */
+    border: 1px solid #ebdbe3;
+    border-radius: 12px;
+  }
+
+  /* Selected active track item focus state styling */
+  .sidebar-nav-link-item.active-nav-route {
+    background-color: #e6e6fa !important; /* Soft Lavender Purple wash */
+    color: #4f46e5 !important;
+    border-color: #bcccdc !important;
+  }
+
+  /* ✅ ACTIVATES THE BACKGROUND BLUR BLANKET SHADOW MASK OVER CORES */
+  .mobile-sidebar-backdrop-overlay {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(75, 63, 92, 0.18); /* Pastel amethyst shade coat overlay mask */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 9998; /* Sits directly under the side drawer layer */
+  }
+
+  /* Footer layout wrapper adjustments inside drawer panel bottom */
+  .sidebar-footer-action-wrapper {
+    padding: 16px 12px;
+    border-top: 1px solid #f1f5f9;
+    background-color: #fafafa;
+    margin-top: auto !important; /* Fastens lock straight down */
+  }
+
+  .sidebar-signout-btn {
+    width: 100% !important;
+    display: flex !important;
+    padding: 12px 14px !important;
+    font-size: 0.86rem !important;
+    border-radius: 10px !important;
+  }
+
+  /* Center page canvas adjustments below the 60px mobile navbar header */
+  .main-content-display-viewport {
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(100vh - 60px); 
+    overflow-y: auto;
+  }
 }

@@ -10,14 +10,16 @@ import { AuthService } from '../../core/services/auth/auth.service';
 })
 export class LayoutComponent implements OnInit {
 
-  // 🔑 Injected both Router and AuthService inside your constructor parameters
+  // 📱 Tracks whether the mobile sliding navigation drawer menu is open
+  isMobileMenuOpen: boolean = false;
+
   constructor(
     private router: Router,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    // 🛡️ SECURITY SESSION GUARD: If a user signs out, bounce them back to login instantly
+    // 🛡️ SECURITY GUARD: Redirect to login if user logs out
     this.authService.currentUser$.subscribe(user => {
       if (!user) {
         this.router.navigate(['/login']);
@@ -26,15 +28,27 @@ export class LayoutComponent implements OnInit {
   }
 
   /**
-   * 🚪 TERMINATES ACTIVE SECTIONS & REDIRECTS TO LOGIN LANDING
+   * 🔀 TOGGLE MOBILE DRAWER PANEL
+   */
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  /**
+   * 🚪 CLOSES SIDEBAR DRAWER ON SELECTION
+   */
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+  }
+
+  /**
+   * 🚪 SIGNOUT PIPELINE
    */
   async executeSystemSignOut() {
     try {
-      // 1. Wipe active login session tokens from Firebase cloud servers
+      this.closeMobileMenu(); 
       await this.authService.logoutCurrentUser();
       console.log('User signed out successfully.');
-
-      // 2. Force browser redirect back to your login route path
       await this.router.navigate(['/login']);
     } catch (error) {
       console.error('Error during sign out routine execution:', error);

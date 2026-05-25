@@ -1,149 +1,196 @@
 /* src/app/auth/login/login.component.css */
 
-/* Centers the form box exactly inside your desktop screen workspace view */
-.auth-desktop-canvas {
+/* 1. Dreamy Pastel Gradient (Baby Pink to Soft Sky Blue) */
+.auth-container {
+  min-height: 100vh;
   width: 100%;
-  min-height: 90vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  padding: 40px 20px;
+  justify-content: center;
+  
+  /* Beautiful soft pastel blend */
+  background: linear-gradient(135deg, #fff0f5 0%, #f0f4ff 50%, #e6e6fa 100%);
+  
+  padding: 20px;
   box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.auth-central-box {
+/* 2. White Card with a Soft Lavender Drop Shadow */
+.auth-card {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  background: #ffffff; 
+  
+  border-radius: 20px;
+  /* Soft lavender tint border */
+  border: 1px solid rgba(230, 230, 250, 0.8); 
+  
+  padding: 40px 35px;
+  box-sizing: border-box;
+  
+  /* Expansive lavender shadow glow */
+  box-shadow: 
+    0 15px 35px -5px rgba(216, 191, 216, 0.35), 
+    0 10px 15px -6px rgba(230, 230, 250, 0.2);
+  
+  animation: pastelFadeIn 0.4s ease-out;
+}
+
+@keyframes pastelFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. Deep Lavender-Slate Typography */
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #4b3f5c; /* Deep Lavender-Slate */
+  letter-spacing: -0.5px;
+}
+
+.auth-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #7d6b91; /* Muted Lavender-Amethyst */
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* 4. Soft Pastel Form Input Fields */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6a5d7b; /* Lavender Accent Heading */
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  
+  /* Very faint baby pink / lavender wash fill */
+  background: #fff9fb; 
+  border: 1.5px solid #ebdbe3;
+  border-radius: 12px;
+  
+  color: #4b3f5c;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #c4b7cb;
+}
+
+/* Smooth Soft Blue Focus Outline */
+.form-group input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #b0c4de; /* Soft Sky Blue Accent Border on Focus */
+  box-shadow: 0 0 0 3px rgba(176, 196, 222, 0.4);
+}
+
+/* 5. Custom Soft Amethyst/Lavender Action Button */
+.auth-submit-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  
+  background: #8e7cc3; /* Soft Lavender Purple Primary */
+  color: #ffffff;
+  
+  border: none;
+  border-radius: 12px;
+  
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(142, 124, 195, 0.2);
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  background: #7c69b5; /* Slightly richer purple on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(142, 124, 195, 0.3);
+}
+
+.auth-submit-btn:disabled {
+  background: #e2dfeb;
+  color: #a39eb8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* 6. Pastel Red Error Box */
+.error-alert {
+  background: #fff0f2;
+  border: 1px solid #ffd1d7;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  color: #d6334a;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* 7. Subtle Footer Transitions */
+.auth-divider {
+  margin: 25px 0;
+  text-align: center;
+  border-bottom: 1px solid #f0e6ef;
+  height: 1px;
+}
+
+.auth-divider span {
+  position: relative;
+  top: -9px;
+  background-color: #ffffff;
+  padding: 0 10px;
+  color: #c4b7cb;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.auth-toggle-footer {
   text-align: center;
 }
 
-/* Precise Title Scale Matching your Mockup Images */
-.main-auth-heading {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #1f2937;
-  line-height: 1.2;
-  letter-spacing: -0.8px;
-  margin-bottom: 32px;
+.auth-toggle-footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #7d6b91;
 }
 
-/* THE BOXED INPUT DETAILS CONTAINER */
-.credentials-input-card {
-  border: 1px solid #e5e7eb;
-  background-color: #f9fafb;
-  border-radius: 16px;
-  padding: 22px 20px;
-  margin-bottom: 24px;
-  text-align: left;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
-}
-
-.form-input-stack-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-}
-
-.form-input-stack-group:last-of-type {
-  margin-bottom: 0;
-}
-
-.form-input-stack-group label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #4b5563;
-  margin-bottom: 6px;
-}
-
-.label-row-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.auxiliary-inline-link {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #6366f1; /* Matched cleanly with your periwinkle identity */
-  cursor: pointer;
+.auth-toggle-footer a {
+  color: #8e7cc3; /* Lavender links */
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+  padding-left: 2px;
 }
 
-.auxiliary-inline-link:hover {
+.auth-toggle-footer a:hover {
+  color: #5c4b8a;
   text-decoration: underline;
 }
-
-.clean-mobile-field {
-  padding: 12px 14px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  color: #1f2937;
-  background-color: #ffffff;
-  outline: none;
-  font-weight: 600;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* =========================================================================
-   🔘 APP ICON SIGNATURE BUTTON ADJUSTMENTS
-   ========================================================================= */
-.prime-action-brand-btn {
-  width: 100%;
-  padding: 14px 20px;
-  background-color: #6366f1; /* Your application's signature periwinkle tone factor */
-  color: #ffffff;
-  border: none;
-  border-radius: 16px;       /* Consistent rounded chassis corner styling maps */
-  font-size: 0.98rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
-  transition: all 0.2s ease;
-}
-
-.prime-action-brand-btn:hover {
-  background-color: #4f46e5;
-  transform: translateY(-1px);
-}
-
-.social-providers-stack {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 32px;
-}
-
-.outline-provider-btn {
-  width: 100%;
-  padding: 12px 18px;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #4b5563;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
-  transition: all 0.2s ease;
-}
-
-.outline-provider-btn:hover {
-  background-color: #f9fafb;
-}
-
-.provider-brand-icon-google { color: #ea4335; font-weight: 900; }
-
-/* Legal Note elements placement adjustments */
-.legal-footer-text { font-size: 0.78rem; color: #6b7280; line-height: 1.5; padding: 0 12px; margin: 0; }
-.legal-link { font-weight: 700; text-decoration: underline; color: #4b5563; cursor: pointer; }
